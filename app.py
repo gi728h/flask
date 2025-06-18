@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
 import requests
 import time
+import os
 
 app = Flask(__name__)
+os.environ["FLASK_APP"] = "app.py"
 
 def fetch_announcements_with_retry(max_retries=10, delay=2):
     url = "https://www.nseindia.com/api/corporate-announcements?index=invitsreits"
